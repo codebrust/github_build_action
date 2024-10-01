@@ -1,0 +1,6 @@
+[submodule "test_submodule"]
+	path = test_submodule
+	url = git@github.com:codebrust/test_submodule.git
+[submodule "test_submodule2"]
+	path = test_submodule2
+	url = git@github.com:codebrust/test_submodule2.git
