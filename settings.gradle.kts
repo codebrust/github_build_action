@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "GithubBuildActionWithSubmodule"
 include(":app")
- 
+include(":test_submodule")
+include(":test_submodule2")
