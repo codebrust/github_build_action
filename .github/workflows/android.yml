@@ -19,7 +19,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: gradle
-        submodules: recursive
+        submodules: true
         token: ${{ secrets.STOKEN }}
 
     - name: Grant execute permission for gradlew
