@@ -22,6 +22,10 @@ jobs:
         submodules: 'true'
         token: ${{ secrets.STOKEN }}
 
+    - name: Pull & update submodules recursively
+      run:
+        git submodule update --init --recursive
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
