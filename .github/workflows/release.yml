@@ -52,7 +52,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
           draft: false
-          prerelease: true
+          prerelease: false
 
       - name: Upload Action Application APK File 🗳
         uses: actions/upload-artifact@v4
