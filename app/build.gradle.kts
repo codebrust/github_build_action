@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -29,12 +31,33 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        applicationVariants.all{
+            val variant = this
+            this.outputs.forEach {
+                (it as BaseVariantOutputImpl).outputFileName =
+                    variant.flavorName + "_" + variant.versionName + "_" + variant.versionCode + ".apk"
+            }
+        }
+
+
+//        android.applicationVariants.all { variant ->
+//            variant.outputs.each { output ->
+//                output.outputFileName = new File(variant.flavorName + "-" + versionName + "-" + versionCode + ".apk")
+//            }
+//        }
     }
 
     flavorDimensions += "version"
     productFlavors {
-        create("demo")
-        create("free")
+        create("demo"){
+            versionCode = 1
+            versionName = "0.0.0-demo"
+        }
+        create("free"){
+            versionCode = 2
+            versionName = "0.0.2-free"
+        }
         create("pro")
     }
 
