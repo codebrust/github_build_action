@@ -54,7 +54,7 @@ jobs:
           draft: false
           prerelease: true
 
-      - name: Upload Application APK File 🗳
+      - name: Upload Action Application APK File 🗳
         uses: actions/upload-artifact@v4
         env:
           GITHUB_TOKEN: ${{ secrets.STOKEN }}
@@ -66,3 +66,9 @@ jobs:
             app/build/outputs/apk/free/release/*.apk
             app/build/outputs/bundle/freeRelease/*.aab
           if-no-files-found: ignore
+      - name: Upload Application APK Release File 🗳
+        run: |
+          gh release upload ${{github.event.release.tag_name}} app/build/outputs/apk/demo/release/*.apk
+          gh release upload ${{github.event.release.tag_name}} app/build/outputs/bundle/demoRelease/*.aab
+          gh release upload ${{github.event.release.tag_name}} app/build/outputs/apk/free/release/*.apk
+          gh release upload ${{github.event.release.tag_name}} app/build/outputs/bundle/freeRelease/*.aab
