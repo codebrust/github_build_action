@@ -67,6 +67,8 @@ jobs:
             app/build/outputs/bundle/freeRelease/*.aab
           if-no-files-found: ignore
       - name: Upload Application APK Release File 🗳
+        env:
+          GITHUB_TOKEN: ${{ secrets.STOKEN }}
         run: |
           gh release upload ${{github.ref}} app/build/outputs/apk/demo/release/*.apk
           gh release upload ${{github.ref}} app/build/outputs/bundle/demoRelease/*.aab
