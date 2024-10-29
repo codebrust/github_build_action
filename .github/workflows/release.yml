@@ -70,5 +70,5 @@ jobs:
         uses: alexellis/upload-assets@0.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.STOKEN }}
-        with: |
+        with:
           asset_paths: '["app/build/outputs/apk/demo/release/*.apk","app/build/outputs/bundle/demoRelease/*.aab","app/build/outputs/apk/free/release/*.apk","app/build/outputs/bundle/freeRelease/*.aab"]'
