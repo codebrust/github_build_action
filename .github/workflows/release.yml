@@ -68,7 +68,7 @@ jobs:
           if-no-files-found: ignore
       - name: Upload Application APK Release File 🗳
         run: |
-          gh release upload ${{github.event.release.tag_name}} app/build/outputs/apk/demo/release/*.apk
-          gh release upload ${{github.event.release.tag_name}} app/build/outputs/bundle/demoRelease/*.aab
-          gh release upload ${{github.event.release.tag_name}} app/build/outputs/apk/free/release/*.apk
-          gh release upload ${{github.event.release.tag_name}} app/build/outputs/bundle/freeRelease/*.aab
+          gh release upload ${{github.ref}} app/build/outputs/apk/demo/release/*.apk
+          gh release upload ${{github.ref}} app/build/outputs/bundle/demoRelease/*.aab
+          gh release upload ${{github.ref}} app/build/outputs/apk/free/release/*.apk
+          gh release upload ${{github.ref}} app/build/outputs/bundle/freeRelease/*.aab
